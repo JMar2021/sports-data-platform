@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/JMar2021/sports-data-platform/internal/jobs"
 	"github.com/JMar2021/sports-data-platform/internal/mlb"
 )
 
@@ -12,12 +13,16 @@ func main() {
 	httpClient := &http.Client{}
 	client := mlb.NewClient(httpClient)
 
-	scheduleResponse, err := client.GetSchedule(time.Now().Format("2006-01-02"))
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
+	executor := &jobs.Executor{
+		Client: client,
 	}
-	for _, game := range scheduleResponse.Dates[0].Games {
-		fmt.Printf("%s %d @ %s %d\n", game.Teams.Away.Team.Name, game.Teams.Away.Score, game.Teams.Home.Team.Name, game.Teams.Home.Score)
+	job := jobs.Job{
+		Sport:     "mlb",
+		Operation: "get_schedule",
+		Date:      time.Now().Format("2006-01-02"),
+	}
+	err := executor.Execute(job)
+	if err != nil {
+		fmt.Println("Error executing job:", err)
 	}
 }
