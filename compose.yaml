@@ -9,5 +9,16 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+  
+  app:
+    build:  .
+    environment:
+      SPORTS_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    
 volumes:
   postgres_data:
+
