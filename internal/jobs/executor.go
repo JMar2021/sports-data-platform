@@ -1,33 +1,22 @@
 package jobs
 
 import (
+	"context"
 	"fmt"
 
-	"github.com/JMar2021/sports-data-platform/internal/mlb"
+	"github.com/JMar2021/sports-data-platform/internal/ingestion"
 )
 
 type Executor struct {
-	Client *mlb.Client
+	Ingestor *ingestion.MLBIngestor
 }
 
-func (e *Executor) Execute(job Job) error {
+func (e *Executor) Execute(ctx context.Context, job Job) error {
 	switch job.Sport {
 	case SportMLB:
 		switch job.Operation {
 		case OperationGetSchedule:
-			scheduleResponse, err := e.Client.GetSchedule(job.Date)
-			if err != nil {
-				return err
-			}
-			// Process the scheduleResponse as needed
-			if len(scheduleResponse.Dates) == 0 {
-				fmt.Println("No games scheduled for this date.")
-				return nil
-			}
-			for _, game := range scheduleResponse.Dates[0].Games {
-				fmt.Printf("%s %d @ %s %d\n", game.Teams.Away.Team.Name, game.Teams.Away.Score, game.Teams.Home.Team.Name, game.Teams.Home.Score)
-			}
-			return nil
+			return e.Ingestor.IngestSchedule(ctx, job.Date)
 		default:
 			return fmt.Errorf("unsupported operation: %s", job.Operation)
 		}

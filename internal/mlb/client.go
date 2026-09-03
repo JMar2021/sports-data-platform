@@ -1,6 +1,7 @@
 package mlb
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -17,9 +18,9 @@ func NewClient(httpClient *http.Client) *Client {
 	}
 }
 
-func (c *Client) GetSchedule(date string) (*ScheduleResponse, error) {
+func (c *Client) GetSchedule(ctx context.Context, date string) (*ScheduleResponse, error) {
 	url := "https://statsapi.mlb.com/api/v1/schedule?date=" + date + "&sportId=1"
-	request, err := http.NewRequest("GET", url, nil)
+	request, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, err
 	}

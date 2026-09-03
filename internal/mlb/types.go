@@ -15,6 +15,10 @@ type GameTeams struct {
 	Home GameTeam `json:"home"`
 }
 
+type Venue struct {
+	Name string `json:"name"`
+}
+
 type GameStatus struct {
 	AbstractGameState string `json:"abstractGameState"`
 }
@@ -24,6 +28,7 @@ type Game struct {
 	GameDate string     `json:"gameDate"`
 	Status   GameStatus `json:"status"`
 	Teams    GameTeams  `json:"teams"`
+	Venue    Venue      `json:"venue"`
 }
 
 type ScheduleDate struct {
