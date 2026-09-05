@@ -3,6 +3,7 @@ package ingestion
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/JMar2021/sports-data-platform/internal/mlb"
@@ -68,4 +69,121 @@ func (m *MLBIngestor) IngestSchedule(ctx context.Context, date string) error {
 		}
 	}
 	return nil
+}
+
+func (m *MLBIngestor) IngestStandings(ctx context.Context, date string) error {
+	season := time.Now().Year()
+
+	standingsResponse, err := m.MLBClient.GetStandings(
+		ctx,
+		strconv.Itoa(season),
+	)
+	if err != nil {
+		return err
+	}
+
+	snapshotDate, err := time.Parse("2006-01-02", date)
+	if err != nil {
+		return fmt.Errorf("invalid snapshot date %q: %w", date, err)
+	}
+
+	for _, group := range standingsResponse.Records {
+		for _, record := range group.TeamRecords {
+
+			teamID, err := m.Repository.UpsertTeam(
+				ctx,
+				record.Team.ID,
+				record.Team.Name,
+			)
+			if err != nil {
+				return fmt.Errorf("upserting team %d: %w", record.Team.ID, err)
+			}
+
+			divisionRank, err := strconv.Atoi(record.DivisionRank)
+			if err != nil {
+				return fmt.Errorf(
+					"parsing division rank for team %d: %w",
+					record.Team.ID,
+					err,
+				)
+			}
+
+			leagueRank, err := strconv.Atoi(record.LeagueRank)
+			if err != nil {
+				return fmt.Errorf(
+					"parsing league rank for team %d: %w",
+					record.Team.ID,
+					err,
+				)
+			}
+
+			var gamesBack float64
+
+			if record.GamesBack == "-" {
+				gamesBack = 0
+			} else {
+				gamesBack, err = strconv.ParseFloat(record.GamesBack, 64)
+				if err != nil {
+					return fmt.Errorf(
+						"parsing games back for team %d: %w",
+						record.Team.ID,
+						err,
+					)
+				}
+			}
+
+			winningPercentage, err := strconv.ParseFloat(
+				record.WinningPercentage,
+				64,
+			)
+			if err != nil {
+				return fmt.Errorf(
+					"parsing winning percentage for team %d: %w",
+					record.Team.ID,
+					err,
+				)
+			}
+
+			lastUpdated, err := time.Parse(
+				time.RFC3339,
+				record.LastUpdated,
+			)
+			if err != nil {
+				return fmt.Errorf(
+					"parsing last updated for team %d: %w",
+					record.Team.ID,
+					err,
+				)
+			}
+
+			err = m.Repository.UpsertStandings(
+				ctx,
+				teamID,
+				season,
+				snapshotDate,
+				divisionRank,
+				leagueRank,
+				record.GamesPlayed,
+				gamesBack,
+				record.Wins,
+				record.Losses,
+				winningPercentage,
+				record.RunsScored,
+				record.RunsAllowed,
+				record.RunDifferential,
+				lastUpdated,
+			)
+			if err != nil {
+				return fmt.Errorf(
+					"upserting standings for team %d: %w",
+					record.Team.ID,
+					err,
+				)
+			}
+
+		}
+	}
+
+	return nil
+
 }

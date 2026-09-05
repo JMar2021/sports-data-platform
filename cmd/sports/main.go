@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
@@ -21,6 +22,7 @@ import (
 )
 
 func main() {
+	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
 	// Create a context that will be cancelled when the program
 	// receives SIGINT (Ctrl+C) or SIGTERM.
 	ctx, stop := signal.NotifyContext(
@@ -29,6 +31,7 @@ func main() {
 		syscall.SIGTERM,
 	)
 	defer stop()
+	jobCtx := context.Background()
 	connString := os.Getenv("SPORTS_DATABASE_URL")
 	dbPool, err := database.NewPool(ctx, connString)
 	if err != nil {
@@ -44,29 +47,6 @@ func main() {
 			log.Printf("API server error: %v", err)
 		}
 	}()
-	games, err := repo.GetGames(context.Background())
-	if err != nil {
-		fmt.Errorf("Failed to get games: %v", err)
-	}
-
-	for _, game := range games {
-		fmt.Printf(
-			"%s %d @ %s %d — %s — %s\n",
-			game.AwayTeam,
-			game.AwayScore,
-			game.HomeTeam,
-			game.HomeScore,
-			game.Status,
-			game.Venue,
-		)
-	}
-	teamID, err := repo.UpsertTeam(ctx, 111, "Test Team")
-	if err != nil {
-		fmt.Println("Failed to upsert team:", err)
-		return
-	}
-
-	fmt.Println("Team database ID:", teamID)
 	version, err := repo.GetDatabaseVersion(ctx)
 	if err != nil {
 		fmt.Printf("Failed to query database version: %v\n", err)
@@ -75,40 +55,81 @@ func main() {
 	fmt.Printf("Connected to database: %s\n", version)
 
 	// Create the job queue.
-	queue := make(chan jobs.Job, 10)
+	queue := jobs.NewQueue()
+	retryManager := &jobs.RetryManager{
+		Queue: queue,
+	}
+	if err := jobs.RecoverJobs(
+		ctx,
+		repo,
+		queue,
+		logger,
+	); err != nil {
+		logger.Error(
+			"failed to recover jobs",
+			"error", err,
+		)
 
+		return
+	}
 	// Create the MLB client.
 	mlbClient := mlb.NewClient(&http.Client{})
 	ingestor := &ingestion.MLBIngestor{
 		MLBClient:  mlbClient,
 		Repository: repo,
 	}
-	// Create the executor.
-	executor := &jobs.Executor{
-		Ingestor: ingestor,
+	var scheduleHandler jobs.JobHandler = func(ctx context.Context, job jobs.Job) error {
+		return ingestor.IngestSchedule(ctx, job.Date)
 	}
+	var standingsHandler jobs.JobHandler = func(ctx context.Context, job jobs.Job) error {
+		return ingestor.IngestStandings(ctx, job.Date)
+	}
+	handlers := map[jobs.JobKey]jobs.JobHandler{
+		{
+			Sport:     jobs.SportMLB,
+			Operation: jobs.OperationGetSchedule,
+		}: scheduleHandler,
 
+		{
+			Sport:     jobs.SportMLB,
+			Operation: jobs.OperationGetStandings,
+		}: standingsHandler,
+	}
+	scheduleFactory := func() (jobs.Job, error) {
+		return jobs.NewScheduleJob(time.Now().Format("2006-01-02"))
+	}
+	standingsFactory := func() (jobs.Job, error) {
+		return jobs.NewStandingsJob(time.Now().Format("2006-01-02"))
+	}
+	factories := []jobs.JobFactory{scheduleFactory, standingsFactory}
+	executor := jobs.NewExecutor(logger, handlers)
 	// Create the scheduler.
-	scheduler := jobs.NewScheduler(queue, 10*time.Second)
-
-	// Start the scheduler.
-	go scheduler.Run(ctx)
+	scheduler := jobs.NewScheduler(queue, repo, 10*time.Second, factories)
 
 	// Create and start workers.
 	var wg sync.WaitGroup
+	var producerWG sync.WaitGroup
+	producerWG.Add(1)
+	go func() {
+		defer producerWG.Done()
+		scheduler.Run(ctx)
+	}()
 
 	for i := 1; i <= 3; i++ {
 		worker := &jobs.Worker{
-			ID:       i,
-			Queue:    queue,
-			Executor: executor,
+			ID:           i,
+			Queue:        queue,
+			Executor:     executor,
+			Logger:       logger,
+			RetryManager: retryManager,
+			Repository:   repo,
 		}
 
 		wg.Add(1)
 
 		go func() {
 			defer wg.Done()
-			worker.Run(ctx)
+			worker.Run(ctx, jobCtx)
 		}()
 	}
 
@@ -116,16 +137,16 @@ func main() {
 
 	// Wait until the context is cancelled.
 	<-ctx.Done()
-
 	fmt.Println("Shutdown signal received.")
+	producerWG.Wait()
+	retryManager.WG.Wait()
+	queue.Close()
+	wg.Wait()
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := apiServer.Shutdown(shutdownCtx); err != nil {
 		log.Printf("API server shutdown error: %v", err)
 	}
-
-	// Wait for workers to finish.
-	wg.Wait()
 
 	fmt.Println("Sports Data Platform stopped.")
 }

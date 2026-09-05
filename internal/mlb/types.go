@@ -41,3 +41,41 @@ type ScheduleResponse struct {
 	Dates      []ScheduleDate `json:"dates"`
 	TotalGames int            `json:"totalGames"`
 }
+
+type StandingsTeam struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+type LeagueRecord struct {
+	Wins   int    `json:"wins"`
+	Losses int    `json:"losses"`
+	Pct    string `json:"pct"`
+}
+
+type StandingsRecord struct {
+	Team              StandingsTeam `json:"team"`
+	Season            string        `json:"season"`
+	DivisionRank      string        `json:"divisionRank"`
+	LeagueRank        string        `json:"leagueRank"`
+	GamesPlayed       int           `json:"gamesPlayed"`
+	GamesBack         string        `json:"gamesBack"`
+	LeagueRecord      LeagueRecord  `json:"leagueRecord"`
+	RunsScored        int           `json:"runsScored"`
+	RunsAllowed       int           `json:"runsAllowed"`
+	RunDifferential   int           `json:"runDifferential"`
+	Wins              int           `json:"wins"`
+	Losses            int           `json:"losses"`
+	WinningPercentage string        `json:"winningPercentage"`
+	LastUpdated       string        `json:"lastUpdated"`
+}
+
+type StandingsGroup struct {
+	League      any               `json:"league"`
+	Division    any               `json:"division"`
+	TeamRecords []StandingsRecord `json:"teamRecords"`
+}
+
+type StandingsResponse struct {
+	Records []StandingsGroup `json:"records"`
+}

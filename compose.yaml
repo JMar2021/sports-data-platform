@@ -7,18 +7,37 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
+    stop_signal: SIGTERM
     volumes:
       - postgres_data:/var/lib/postgresql
-  
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  migrate:
+    image: juhokoskela/goose:latest
+    environment:
+      GOOSE_DRIVER: postgres
+      GOOSE_DBSTRING: host=postgres port=5432 user=${POSTGRES_USER} password=${POSTGRES_PASSWORD} dbname=${POSTGRES_DB} sslmode=disable
+      GOOSE_MIGRATION_DIR: /migrations
+    volumes:
+      - ./migrations:/migrations:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: up
+
   app:
-    build:  .
+    build: .
     environment:
       SPORTS_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
-    
+      migrate:
+        condition: service_completed_successfully
+
 volumes:
   postgres_data:
-

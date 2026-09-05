@@ -43,3 +43,38 @@ func (c *Client) GetSchedule(ctx context.Context, date string) (*ScheduleRespons
 	}
 	return &scheduleResponse, nil
 }
+
+func (c *Client) GetStandings(ctx context.Context, season string) (*StandingsResponse, error) {
+	url := fmt.Sprintf(
+		"https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=%s&standingsTypes=regularSeason",
+		season,
+	)
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := c.HTTPClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("MLB API returned status %s", resp.Status)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	var standingsResponse StandingsResponse
+
+	if err := json.Unmarshal(body, &standingsResponse); err != nil {
+		return nil, err
+	}
+
+	return &standingsResponse, nil
+}
