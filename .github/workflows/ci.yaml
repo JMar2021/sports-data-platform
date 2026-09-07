@@ -68,7 +68,7 @@ jobs:
           docker push ghcr.io/jmar2021/sports-data-platform:${{ steps.image_tag.outputs.short_sha }}
   
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs:
       - docker_build
     if: github.ref == 'refs/heads/main'
