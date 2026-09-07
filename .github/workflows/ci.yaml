@@ -92,13 +92,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set image tag
-        run: echo "IMAGE_TAG=${{ needs.docker_build.outputs.image_tag }}" >> "$GITHUB_ENV"
-      - name: Show deployment image tag
-        run: echo "IMAGE_TAG=$env:IMAGE_TAG"
       - name: Pull deployment image
+        env:
+          IMAGE_TAG: ${{ needs.docker_build.outputs.image_tag }}
         run: docker compose -f compose.yaml pull
       - name: Deploy
+        env:
+          IMAGE_TAG: ${{ needs.docker_build.outputs.image_tag }}
         run: docker compose -f compose.yaml up -d
       - name: Check deployment
         run: docker compose -f compose.yaml ps
