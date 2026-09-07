@@ -71,11 +71,24 @@ jobs:
     runs-on: self-hosted
     needs:
       - docker_build
+    permissions:
+      contents: read
+      packages: read
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-      - name: Show deployment
-        run: |
-          echo "Deploying image:"
-          echo "ghcr.io/jmar2021/sports-data-platform:${{ needs.docker_build.outputs.image_tag }}"
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set image tag
+        run: echo "IMAGE_TAG=${{ needs.docker_build.outputs.image_tag }}" >> "$GITHUB_ENV"
+      - name: Pull deployment image
+        run: docker compose -f compose.yaml pull
+      - name: Deploy
+        run: docker compose -f compose.yaml up -d
+      - name: Check deployment
+        run: docker compose -f compose.yaml ps
