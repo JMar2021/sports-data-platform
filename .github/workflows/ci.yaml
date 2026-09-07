@@ -51,8 +51,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Docker image
-        run: docker build -t ghcr.io/jmar2021/sports-data-platform:latest .
+      - name: Set short SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: Build and Tag Docker image
+        run: |
+          docker build -t ghcr.io/jmar2021/sports-data-platform:latest .
+          docker tag ghcr.io/jmar2021/sports-data-platform:latest ghcr.io/jmar2021/sports-data-platform:$SHORT_SHA
+
       - name: Docker push
         if: github.ref == 'refs/heads/main'
-        run: docker push ghcr.io/jmar2021/sports-data-platform:latest
+        run: |
+          docker push ghcr.io/jmar2021/sports-data-platform:latest
+          docker push ghcr.io/jmar2021/sports-data-platform:$SHORT_SHA
