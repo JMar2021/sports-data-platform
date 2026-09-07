@@ -53,8 +53,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
         run: docker build -t ghcr.io/jmar2021/sports-data-platform:latest .
-      - name: Debug ref branch
-        run: echo "Github ref is ${{ github.ref }}"
       - name: Docker push
-        if: github.ref == 'ref/heads/main'
+        if: github.ref == 'refs/heads/main'
         run: docker push ghcr.io/jmar2021/sports-data-platform:latest
