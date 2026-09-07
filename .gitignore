@@ -1,6 +1,10 @@
 # Environment
 .env
 
+# Docker
+compose.override.yaml
+
+
 # Python
 __pycache__/
 *.pyc
