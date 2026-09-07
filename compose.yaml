@@ -45,20 +45,5 @@ services:
       migrate:
         condition: service_completed_successfully
   
-  deploy:
-    runs-on: self-hosted
-    needs:
-      - docker_build
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Show image being deployed
-        run: |
-          echo "Deploying image:"
-          echo "ghcr.io/jmar2021/sports-data-platform:${{ needs.docker_build.outputs.image_tag }}"
-
 volumes:
   postgres_data:
