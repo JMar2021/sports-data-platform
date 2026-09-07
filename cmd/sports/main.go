@@ -15,6 +15,7 @@ import (
 
 	"github.com/JMar2021/sports-data-platform/database"
 	"github.com/JMar2021/sports-data-platform/internal/api"
+	"github.com/JMar2021/sports-data-platform/internal/config"
 	"github.com/JMar2021/sports-data-platform/internal/ingestion"
 	"github.com/JMar2021/sports-data-platform/internal/jobs"
 	"github.com/JMar2021/sports-data-platform/internal/mlb"
@@ -32,8 +33,12 @@ func main() {
 	)
 	defer stop()
 	jobCtx := context.Background()
-	connString := os.Getenv("SPORTS_DATABASE_URL")
-	dbPool, err := database.NewPool(ctx, connString)
+	config, err := config.Load()
+	if err != nil {
+		fmt.Printf("Config not valid")
+		return
+	}
+	dbPool, err := database.NewPool(ctx, config.DatabaseURL)
 	if err != nil {
 		fmt.Printf("Failed to create database pool: %v\n", err)
 		return
@@ -41,7 +46,7 @@ func main() {
 	defer dbPool.Close()
 	fmt.Println("Database connection pool created successfully.")
 	repo := repository.NewRepository(dbPool)
-	apiServer := api.NewServer(repo)
+	apiServer := api.NewServer(repo, config.HTTPAddr)
 	go func() {
 		if err := apiServer.Start(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Printf("API server error: %v", err)

@@ -15,10 +15,10 @@ type Server struct {
 	// Add any necessary fields for the server, such as configuration, logger, etc.
 }
 
-func NewServer(repo *repository.Repository) *Server {
+func NewServer(repo *repository.Repository, httpAddr string) *Server {
 	mux := http.NewServeMux()
 	httpServer := &http.Server{
-		Addr:    ":8080",
+		Addr:    httpAddr,
 		Handler: mux,
 	}
 	server := &Server{
@@ -27,6 +27,7 @@ func NewServer(repo *repository.Repository) *Server {
 		HTTPServer: httpServer,
 	}
 	mux.HandleFunc("/games", server.handleGames)
+	mux.HandleFunc("/health", healthHandler)
 	return server
 }
 
@@ -47,4 +48,13 @@ func (s *Server) Start() error {
 
 func (s *Server) Shutdown(ctx context.Context) error {
 	return s.HTTPServer.Shutdown(ctx)
+}
+
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
 }
