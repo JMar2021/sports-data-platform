@@ -39,8 +39,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
       - app_build
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
-        run: docker build -t sports-data-platform:ci .
+        run: docker build -t ghcr.io/${{ github.repository }}:latest .
+      - name: Docker push
+        if: github.ref == "ref/heads/main"
+        run: docker push ghcr.io/${{ github.repository }}:latest
