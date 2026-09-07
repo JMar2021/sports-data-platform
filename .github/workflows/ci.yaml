@@ -52,7 +52,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
-        run: docker build -t ghcr.io/jmar2021/sports-data-platform/:latest .
+        run: docker build -t ghcr.io/jmar2021/sports-data-platform:latest .
       - name: Docker push
         if: github.ref == 'ref/heads/main'
-        run: docker push ghcr.io/jmar2021/sports-data-platform/:latest
+        run: docker push ghcr.io/jmar2021/sports-data-platform:latest
