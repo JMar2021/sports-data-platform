@@ -19,7 +19,28 @@ jobs:
         run: go mod download
       - name: Run tests
         run: go test ./...
+
+  app_build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+      - name: Download dependencies
+        run: go mod download
       - name: Build application
         run: go build ./cmd/sports
+
+  docker_build:
+    runs-on: ubuntu-latest
+    needs: 
+      - app_build
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Build Docker image
         run: docker build -t sports-data-platform:ci .
