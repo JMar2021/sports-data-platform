@@ -82,6 +82,8 @@ jobs:
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
     steps:
+      - name: Show docker build job output
+        run: echo "docker_build image_tag=${{ needs.docker_build.outputs.image_tag }}"
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Login to GHCR
