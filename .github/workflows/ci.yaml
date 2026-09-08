@@ -56,8 +56,6 @@ jobs:
       - name: Set short SHA
         id: image_tag
         run: echo "short_sha=${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
-      - name: Show image tag output
-        run: echo "short_sha=${{ steps.image_tag.outputs.short_sha }}"
       - name: Build and Tag Docker image
         run: |
           docker build -t ghcr.io/jmar2021/sports-data-platform:latest .
@@ -82,8 +80,6 @@ jobs:
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
     steps:
-      - name: Show docker build job output
-        run: echo "docker_build image_tag=${{ needs.docker_build.outputs.image_tag }}"
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Login to GHCR
