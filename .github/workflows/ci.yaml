@@ -88,6 +88,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Record current image
+        run: ./scripts/record-current-image.ps1
       - name: Pull deployment image
         env:
           IMAGE_TAG: ${{ needs.docker_build.outputs.image_tag }}
@@ -98,3 +100,11 @@ jobs:
         run: docker compose -f compose.yaml up -d
       - name: Check deployment health
         run: ./scripts/deploy-health.ps1
+      - name: Record successful image
+        run: ./scripts/record-current-image.ps1
+      - name: Rollback deployment
+        if: failure()
+        run: ./scripts/rollback.ps1
+      - name: Check rollback health
+        if: failure()
+        run: ./scripts/wait-for-healthy.ps1
