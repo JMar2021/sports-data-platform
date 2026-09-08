@@ -96,5 +96,29 @@ jobs:
         env:
           IMAGE_TAG: ${{ needs.docker_build.outputs.image_tag }}
         run: docker compose -f compose.yaml up -d
-      - name: Check deployment
-        run: docker compose -f compose.yaml ps
+      - name: Check deployment health
+        run: |
+          $healthy = $false
+
+          for ($i = 0; $i -lt 12; $i++) {
+              $status = docker inspect sports-data-platform-app-1 --format "{{.State.Health.Status}}"
+
+              Write-Host "Application health: $status"
+
+              if ($status -eq "healthy") {
+                  $healthy = $true
+                  break
+              }
+
+              if ($status -eq "unhealthy") {
+                  break
+              }
+
+              Start-Sleep -Seconds 5
+          }
+
+          if (-not $healthy) {
+              Write-Error "Application did not become healthy."
+              docker compose -f compose.yaml ps
+              exit 1
+          }
