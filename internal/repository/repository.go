@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -37,32 +38,71 @@ func (r *Repository) GetDatabaseVersion(ctx context.Context) (string, error) {
 	return version, nil
 }
 
-func (r *Repository) UpsertTeam(ctx context.Context, mlbID int, name string) (int, error) {
-	var teamId int
+func (r *Repository) UpsertTeam(
+	ctx context.Context,
+	sport domain.Sport,
+	externalID string,
+	name string,
+) (int, error) {
+	var teamID int
+
 	err := r.DB.QueryRow(ctx,
-		`INSERT INTO teams (mlb_id, name)
-         VALUES ($1, $2)
-         ON CONFLICT (mlb_id)
+		`INSERT INTO teams (sport, external_id, name)
+         VALUES ($1, $2, $3)
+         ON CONFLICT (sport, external_id)
          DO UPDATE SET name = EXCLUDED.name
          RETURNING id`,
-		mlbID, name).Scan(&teamId)
+		sport,
+		externalID,
+		name,
+	).Scan(&teamID)
+
 	if err != nil {
 		return 0, err
 	}
-	return teamId, nil
+
+	return teamID, nil
 }
 
-func (r *Repository) UpsertGame(ctx context.Context, mlbID int, gameDate time.Time, awayTeamID int, homeTeamID int, awayScore int, homeScore int, status string, venue string) error {
+func (r *Repository) UpsertGame(
+	ctx context.Context,
+	game domain.Game,
+	homeTeamID int,
+	awayTeamID int,
+) error {
 	_, err := r.DB.Exec(ctx,
-		`INSERT INTO games (mlb_game_id, game_date, away_team_id, home_team_id, away_score, home_score, status, venue)
-		 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-		 ON CONFLICT (mlb_game_id)
-		 DO UPDATE SET game_date = EXCLUDED.game_date,
-					   home_score = EXCLUDED.home_score,
-					   away_score = EXCLUDED.away_score,
-					   status = EXCLUDED.status,
-					   venue = EXCLUDED.venue`,
-		mlbID, gameDate, awayTeamID, homeTeamID, awayScore, homeScore, status, venue)
+		`INSERT INTO games (
+            sport,
+            external_id,
+            game_date,
+            away_team_id,
+            home_team_id,
+            away_score,
+            home_score,
+            status,
+            venue
+        )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        ON CONFLICT (sport, external_id)
+        DO UPDATE SET
+            game_date = EXCLUDED.game_date,
+            away_team_id = EXCLUDED.away_team_id,
+            home_team_id = EXCLUDED.home_team_id,
+            away_score = EXCLUDED.away_score,
+            home_score = EXCLUDED.home_score,
+            status = EXCLUDED.status,
+            venue = EXCLUDED.venue`,
+		game.Sport,
+		game.ExternalID,
+		game.ScheduledAt,
+		awayTeamID,
+		homeTeamID,
+		game.AwayScore,
+		game.HomeScore,
+		game.Status,
+		game.Venue,
+	)
+
 	return err
 }
 

@@ -1,11 +1,9 @@
 package jobs
 
-import "context"
+import (
+	"context"
 
-type Sport string
-
-const (
-	SportMLB Sport = "mlb"
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 )
 
 type Operation string
@@ -28,7 +26,7 @@ const (
 type Job struct {
 	ID        string
 	Key       string
-	Sport     Sport
+	Sport     domain.Sport
 	Operation Operation
 	Date      string
 	Attempts  int
@@ -38,6 +36,6 @@ type Job struct {
 type JobHandler func(context.Context, Job) error
 
 type JobKey struct {
-	Sport     Sport
+	Sport     domain.Sport
 	Operation Operation
 }

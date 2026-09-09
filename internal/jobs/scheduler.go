@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 	"github.com/JMar2021/sports-data-platform/internal/repository"
 )
 
@@ -63,7 +64,7 @@ func GenerateID() (string, error) {
 	return hex.EncodeToString(id), nil
 }
 
-func NewScheduleJob(date string) (Job, error) {
+func NewScheduleJob(sport domain.Sport, date string) (Job, error) {
 	id, err := GenerateID()
 	if err != nil {
 		return Job{}, err
@@ -71,8 +72,8 @@ func NewScheduleJob(date string) (Job, error) {
 
 	return Job{
 		ID:        id,
-		Key:       "mlb:get_schedule:" + date,
-		Sport:     SportMLB,
+		Key:       string(sport) + ":get_schedule:" + date,
+		Sport:     sport,
 		Operation: OperationGetSchedule,
 		Date:      date,
 		Status:    StatusPending,
@@ -88,7 +89,7 @@ func NewStandingsJob(date string) (Job, error) {
 	return Job{
 		ID:        id,
 		Key:       "mlb:get_standings:" + date,
-		Sport:     SportMLB,
+		Sport:     domain.SportMLB,
 		Operation: OperationGetStandings,
 		Date:      date,
 		Status:    StatusPending,

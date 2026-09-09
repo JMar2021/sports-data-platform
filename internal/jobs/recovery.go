@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"time"
 
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 	"github.com/JMar2021/sports-data-platform/internal/repository"
 )
 
@@ -28,7 +29,7 @@ func RecoverJobs(
 		job := Job{
 			ID:        staleJob.ID,
 			Key:       staleJob.Key,
-			Sport:     Sport(staleJob.Sport),
+			Sport:     domain.Sport(staleJob.Sport),
 			Operation: Operation(staleJob.Operation),
 			Date:      staleJob.Date.Format("2006-01-02"),
 			Attempts:  staleJob.Attempts,

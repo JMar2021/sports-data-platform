@@ -16,9 +16,11 @@ import (
 	"github.com/JMar2021/sports-data-platform/database"
 	"github.com/JMar2021/sports-data-platform/internal/api"
 	"github.com/JMar2021/sports-data-platform/internal/config"
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 	"github.com/JMar2021/sports-data-platform/internal/ingestion"
 	"github.com/JMar2021/sports-data-platform/internal/jobs"
 	"github.com/JMar2021/sports-data-platform/internal/mlb"
+	"github.com/JMar2021/sports-data-platform/internal/nfl"
 	"github.com/JMar2021/sports-data-platform/internal/repository"
 )
 
@@ -79,34 +81,50 @@ func main() {
 	}
 	// Create the MLB client.
 	mlbClient := mlb.NewClient(&http.Client{})
+	nflClient := nfl.NewClient(&http.Client{})
 	ingestor := &ingestion.MLBIngestor{
 		MLBClient:  mlbClient,
 		Repository: repo,
 	}
+	nflIngestor := &ingestion.NFLIngestor{
+		NFLClient:  nflClient,
+		Repository: repo,
+	}
+
 	var scheduleHandler jobs.JobHandler = func(ctx context.Context, job jobs.Job) error {
 		return ingestor.IngestSchedule(ctx, job.Date)
+	}
+	var nflScheduleHandler jobs.JobHandler = func(ctx context.Context, job jobs.Job) error {
+		return nflIngestor.IngestSchedule(ctx, job.Date)
 	}
 	var standingsHandler jobs.JobHandler = func(ctx context.Context, job jobs.Job) error {
 		return ingestor.IngestStandings(ctx, job.Date)
 	}
 	handlers := map[jobs.JobKey]jobs.JobHandler{
 		{
-			Sport:     jobs.SportMLB,
+			Sport:     domain.SportMLB,
 			Operation: jobs.OperationGetSchedule,
 		}: scheduleHandler,
+		{
+			Sport:     domain.SportNFL,
+			Operation: jobs.OperationGetSchedule,
+		}: nflScheduleHandler,
 
 		{
-			Sport:     jobs.SportMLB,
+			Sport:     domain.SportMLB,
 			Operation: jobs.OperationGetStandings,
 		}: standingsHandler,
 	}
 	scheduleFactory := func() (jobs.Job, error) {
-		return jobs.NewScheduleJob(time.Now().Format("2006-01-02"))
+		return jobs.NewScheduleJob(domain.SportMLB, time.Now().Format("2006-01-02"))
+	}
+	nflScheduleFactory := func() (jobs.Job, error) {
+		return jobs.NewScheduleJob(domain.SportNFL, time.Now().Format("2006-01-02"))
 	}
 	standingsFactory := func() (jobs.Job, error) {
 		return jobs.NewStandingsJob(time.Now().Format("2006-01-02"))
 	}
-	factories := []jobs.JobFactory{scheduleFactory, standingsFactory}
+	factories := []jobs.JobFactory{scheduleFactory, standingsFactory, nflScheduleFactory}
 	executor := jobs.NewExecutor(logger, handlers)
 	// Create the scheduler.
 	scheduler := jobs.NewScheduler(queue, repo, 10*time.Second, factories)

@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/JMar2021/sports-data-platform/internal/domain"
 	"github.com/JMar2021/sports-data-platform/internal/mlb"
 	"github.com/JMar2021/sports-data-platform/internal/repository"
 )
@@ -29,15 +30,15 @@ func (m *MLBIngestor) IngestSchedule(ctx context.Context, date string) error {
 		fmt.Printf("%s %d @ %s %d\n", game.Teams.Away.Team.Name, game.Teams.Away.Score, game.Teams.Home.Team.Name, game.Teams.Home.Score)
 		awayTeam := game.Teams.Away.Team
 		homeTeam := game.Teams.Home.Team
-		awayTeamID, err := m.Repository.UpsertTeam(ctx, awayTeam.ID, awayTeam.Name)
+		domainGame, err := mlb.NormalizeGame(game)
 		if err != nil {
 			return err
 		}
-		homeTeamID, err := m.Repository.UpsertTeam(ctx, homeTeam.ID, homeTeam.Name)
+		awayTeamID, err := m.Repository.UpsertTeam(ctx, domainGame.AwayTeam.Sport, domainGame.AwayTeam.ExternalID, domainGame.AwayTeam.Name)
 		if err != nil {
 			return err
 		}
-		gameDate, err := time.Parse(time.RFC3339, game.GameDate)
+		homeTeamID, err := m.Repository.UpsertTeam(ctx, domainGame.HomeTeam.Sport, domainGame.HomeTeam.ExternalID, domainGame.HomeTeam.Name)
 		if err != nil {
 			return err
 		}
@@ -55,14 +56,9 @@ func (m *MLBIngestor) IngestSchedule(ctx context.Context, date string) error {
 		)
 		err = m.Repository.UpsertGame(
 			ctx,
-			game.GamePk,
-			gameDate,
-			awayTeamID,
+			domainGame,
 			homeTeamID,
-			game.Teams.Away.Score,
-			game.Teams.Home.Score,
-			game.Status.AbstractGameState,
-			game.Venue.Name,
+			awayTeamID,
 		)
 		if err != nil {
 			return err
@@ -92,7 +88,8 @@ func (m *MLBIngestor) IngestStandings(ctx context.Context, date string) error {
 
 			teamID, err := m.Repository.UpsertTeam(
 				ctx,
-				record.Team.ID,
+				domain.SportMLB,
+				strconv.Itoa(record.Team.ID),
 				record.Team.Name,
 			)
 			if err != nil {
