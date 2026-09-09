@@ -13,7 +13,7 @@ func TestGetSchedule(t *testing.T) {
 
 	ctx := context.Background()
 
-	schedule, err := client.GetSchedule(ctx, "20260909")
+	schedule, err := client.GetSchedule(ctx, "2026-09-09")
 	if err != nil {
 		t.Fatal(err)
 	}
