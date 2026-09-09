@@ -1,0 +1,2014 @@
+{
+    "games": [
+        {
+            "sport": "mlb",
+            "external_id": "823175",
+            "scheduled_at": "2026-09-08T00:10:00Z",
+            "away_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Live",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823902",
+            "scheduled_at": "2026-09-08T01:10:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "UNIQLO Field at Dodger Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824958",
+            "scheduled_at": "2026-09-08T02:05:00Z",
+            "away_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824792",
+            "scheduled_at": "2026-09-08T22:35:00Z",
+            "away_team": {
+                "name": "Cleveland Guardians"
+            },
+            "home_team": {
+                "name": "Baltimore Orioles"
+            },
+            "away_score": 9,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "Oriole Park at Camden Yards"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823821",
+            "scheduled_at": "2026-09-08T22:40:00Z",
+            "away_team": {
+                "name": "New York Mets"
+            },
+            "home_team": {
+                "name": "Miami Marlins"
+            },
+            "away_score": 7,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "loanDepot park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824228",
+            "scheduled_at": "2026-09-08T22:40:00Z",
+            "away_team": {
+                "name": "Minnesota Twins"
+            },
+            "home_team": {
+                "name": "Detroit Tigers"
+            },
+            "away_score": 3,
+            "home_score": 2,
+            "status": "Final",
+            "venue": "Comerica Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823414",
+            "scheduled_at": "2026-09-08T22:40:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "away_score": 6,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "Citizens Bank Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824714",
+            "scheduled_at": "2026-09-08T22:45:00Z",
+            "away_team": {
+                "name": "Los Angeles Angels"
+            },
+            "home_team": {
+                "name": "Boston Red Sox"
+            },
+            "away_score": 6,
+            "home_score": 1,
+            "status": "Final",
+            "venue": "Fenway Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823500",
+            "scheduled_at": "2026-09-08T23:05:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 3,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824875",
+            "scheduled_at": "2026-09-08T23:15:00Z",
+            "away_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 7,
+            "home_score": 1,
+            "status": "Final",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824063",
+            "scheduled_at": "2026-09-08T23:40:00Z",
+            "away_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "home_team": {
+                "name": "Kansas City Royals"
+            },
+            "away_score": 5,
+            "home_score": 3,
+            "status": "Final",
+            "venue": "Kauffman Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823738",
+            "scheduled_at": "2026-09-08T23:40:00Z",
+            "away_team": {
+                "name": "Chicago Cubs"
+            },
+            "home_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "away_score": 3,
+            "home_score": 4,
+            "status": "Final",
+            "venue": "American Family Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824551",
+            "scheduled_at": "2026-09-08T23:40:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago White Sox"
+            },
+            "away_score": 9,
+            "home_score": 3,
+            "status": "Final",
+            "venue": "Rate Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823092",
+            "scheduled_at": "2026-09-09T01:40:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Seattle Mariners"
+            },
+            "away_score": 10,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "T-Mobile Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824957",
+            "scheduled_at": "2026-09-09T01:40:00Z",
+            "away_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 4,
+            "home_score": 2,
+            "status": "Final",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823250",
+            "scheduled_at": "2026-09-09T01:40:00Z",
+            "away_team": {
+                "name": "Washington Nationals"
+            },
+            "home_team": {
+                "name": "San Diego Padres"
+            },
+            "away_score": 4,
+            "home_score": 5,
+            "status": "Final",
+            "venue": "Petco Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823174",
+            "scheduled_at": "2026-09-09T01:45:00Z",
+            "away_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 1,
+            "home_score": 2,
+            "status": "Final",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823901",
+            "scheduled_at": "2026-09-09T02:10:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "away_score": 2,
+            "home_score": 3,
+            "status": "Final",
+            "venue": "UNIQLO Field at Dodger Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824226",
+            "scheduled_at": "2026-09-09T17:10:00Z",
+            "away_team": {
+                "name": "Minnesota Twins"
+            },
+            "home_team": {
+                "name": "Detroit Tigers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Comerica Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824956",
+            "scheduled_at": "2026-09-09T19:05:00Z",
+            "away_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823172",
+            "scheduled_at": "2026-09-09T19:45:00Z",
+            "away_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823090",
+            "scheduled_at": "2026-09-09T20:10:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Seattle Mariners"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "T-Mobile Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823251",
+            "scheduled_at": "2026-09-09T20:10:00Z",
+            "away_team": {
+                "name": "Washington Nationals"
+            },
+            "home_team": {
+                "name": "San Diego Padres"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Petco Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824791",
+            "scheduled_at": "2026-09-09T22:35:00Z",
+            "away_team": {
+                "name": "Cleveland Guardians"
+            },
+            "home_team": {
+                "name": "Baltimore Orioles"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Oriole Park at Camden Yards"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823416",
+            "scheduled_at": "2026-09-09T22:40:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Citizens Bank Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823818",
+            "scheduled_at": "2026-09-09T22:40:00Z",
+            "away_team": {
+                "name": "New York Mets"
+            },
+            "home_team": {
+                "name": "Miami Marlins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "loanDepot park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824713",
+            "scheduled_at": "2026-09-09T22:45:00Z",
+            "away_team": {
+                "name": "Los Angeles Angels"
+            },
+            "home_team": {
+                "name": "Boston Red Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Fenway Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823497",
+            "scheduled_at": "2026-09-09T23:05:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824871",
+            "scheduled_at": "2026-09-09T23:15:00Z",
+            "away_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824549",
+            "scheduled_at": "2026-09-09T23:40:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago White Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rate Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824064",
+            "scheduled_at": "2026-09-09T23:40:00Z",
+            "away_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "home_team": {
+                "name": "Kansas City Royals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Kauffman Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823739",
+            "scheduled_at": "2026-09-09T23:40:00Z",
+            "away_team": {
+                "name": "Chicago Cubs"
+            },
+            "home_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "American Family Field"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872656",
+            "scheduled_at": "2026-09-10T00:20:00Z",
+            "away_team": {
+                "name": "New England Patriots"
+            },
+            "home_team": {
+                "name": "Seattle Seahawks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Lumen Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823900",
+            "scheduled_at": "2026-09-10T02:10:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "UNIQLO Field at Dodger Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824872",
+            "scheduled_at": "2026-09-10T16:15:00Z",
+            "away_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823413",
+            "scheduled_at": "2026-09-10T17:05:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Citizens Bank Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823088",
+            "scheduled_at": "2026-09-10T20:10:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Seattle Mariners"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "T-Mobile Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823499",
+            "scheduled_at": "2026-09-10T23:05:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824550",
+            "scheduled_at": "2026-09-10T23:40:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago White Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rate Field"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872657",
+            "scheduled_at": "2026-09-11T00:35:00Z",
+            "away_team": {
+                "name": "San Francisco 49ers"
+            },
+            "home_team": {
+                "name": "Los Angeles Rams"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Melbourne Cricket Ground"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824631",
+            "scheduled_at": "2026-09-11T18:20:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824227",
+            "scheduled_at": "2026-09-11T22:40:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "Detroit Tigers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Comerica Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822684",
+            "scheduled_at": "2026-09-11T22:45:00Z",
+            "away_team": {
+                "name": "Los Angeles Angels"
+            },
+            "home_team": {
+                "name": "Washington Nationals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Nationals Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823498",
+            "scheduled_at": "2026-09-11T23:05:00Z",
+            "away_team": {
+                "name": "New York Mets"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822767",
+            "scheduled_at": "2026-09-11T23:07:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824711",
+            "scheduled_at": "2026-09-11T23:10:00Z",
+            "away_team": {
+                "name": "Kansas City Royals"
+            },
+            "home_team": {
+                "name": "Boston Red Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Fenway Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822930",
+            "scheduled_at": "2026-09-11T23:10:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Tropicana Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823817",
+            "scheduled_at": "2026-09-11T23:10:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Miami Marlins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "loanDepot park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824873",
+            "scheduled_at": "2026-09-11T23:15:00Z",
+            "away_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823736",
+            "scheduled_at": "2026-09-11T23:45:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "American Family Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823659",
+            "scheduled_at": "2026-09-12T00:10:00Z",
+            "away_team": {
+                "name": "Cleveland Guardians"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823012",
+            "scheduled_at": "2026-09-12T00:15:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "825036",
+            "scheduled_at": "2026-09-12T01:40:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Chase Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824954",
+            "scheduled_at": "2026-09-12T01:40:00Z",
+            "away_team": {
+                "name": "Seattle Mariners"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823173",
+            "scheduled_at": "2026-09-12T02:15:00Z",
+            "away_team": {
+                "name": "San Diego Padres"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824224",
+            "scheduled_at": "2026-09-12T17:10:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "Detroit Tigers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Comerica Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823496",
+            "scheduled_at": "2026-09-12T17:35:00Z",
+            "away_team": {
+                "name": "New York Mets"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824630",
+            "scheduled_at": "2026-09-12T18:20:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822768",
+            "scheduled_at": "2026-09-12T19:07:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822685",
+            "scheduled_at": "2026-09-12T20:05:00Z",
+            "away_team": {
+                "name": "Los Angeles Angels"
+            },
+            "home_team": {
+                "name": "Washington Nationals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Nationals Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823170",
+            "scheduled_at": "2026-09-12T20:05:00Z",
+            "away_team": {
+                "name": "San Diego Padres"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823657",
+            "scheduled_at": "2026-09-12T20:10:00Z",
+            "away_team": {
+                "name": "Cleveland Guardians"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824712",
+            "scheduled_at": "2026-09-12T20:10:00Z",
+            "away_team": {
+                "name": "Kansas City Royals"
+            },
+            "home_team": {
+                "name": "Boston Red Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Fenway Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823819",
+            "scheduled_at": "2026-09-12T20:10:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Miami Marlins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "loanDepot park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822927",
+            "scheduled_at": "2026-09-12T22:10:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Tropicana Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823737",
+            "scheduled_at": "2026-09-12T23:10:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "American Family Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823009",
+            "scheduled_at": "2026-09-12T23:15:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824870",
+            "scheduled_at": "2026-09-12T23:15:00Z",
+            "away_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "825035",
+            "scheduled_at": "2026-09-13T00:10:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Chase Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824955",
+            "scheduled_at": "2026-09-13T01:40:00Z",
+            "away_team": {
+                "name": "Seattle Mariners"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824225",
+            "scheduled_at": "2026-09-13T16:10:00Z",
+            "away_team": {
+                "name": "Colorado Rockies"
+            },
+            "home_team": {
+                "name": "Detroit Tigers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Comerica Park"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872925",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Tampa Bay Buccaneers"
+            },
+            "home_team": {
+                "name": "Cincinnati Bengals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Paycor Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872660",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Buffalo Bills"
+            },
+            "home_team": {
+                "name": "Houston Texans"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Reliant Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872922",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Cleveland Browns"
+            },
+            "home_team": {
+                "name": "Jacksonville Jaguars"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "EverBank Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872661",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Chicago Bears"
+            },
+            "home_team": {
+                "name": "Carolina Panthers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Bank of America Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872658",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Atlanta Falcons"
+            },
+            "home_team": {
+                "name": "Pittsburgh Steelers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Acrisure Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872659",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "Baltimore Ravens"
+            },
+            "home_team": {
+                "name": "Indianapolis Colts"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Lucas Oil Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872924",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "New York Jets"
+            },
+            "home_team": {
+                "name": "Tennessee Titans"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Nissan Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872923",
+            "scheduled_at": "2026-09-13T17:00:00Z",
+            "away_team": {
+                "name": "New Orleans Saints"
+            },
+            "home_team": {
+                "name": "Detroit Lions"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Ford Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822682",
+            "scheduled_at": "2026-09-13T17:35:00Z",
+            "away_team": {
+                "name": "Los Angeles Angels"
+            },
+            "home_team": {
+                "name": "Washington Nationals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Nationals Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823495",
+            "scheduled_at": "2026-09-13T17:35:00Z",
+            "away_team": {
+                "name": "New York Mets"
+            },
+            "home_team": {
+                "name": "New York Yankees"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Yankee Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824708",
+            "scheduled_at": "2026-09-13T17:35:00Z",
+            "away_team": {
+                "name": "Kansas City Royals"
+            },
+            "home_team": {
+                "name": "Boston Red Sox"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Fenway Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824869",
+            "scheduled_at": "2026-09-13T17:35:00Z",
+            "away_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "home_team": {
+                "name": "Atlanta Braves"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Truist Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822764",
+            "scheduled_at": "2026-09-13T17:37:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822928",
+            "scheduled_at": "2026-09-13T17:40:00Z",
+            "away_team": {
+                "name": "Houston Astros"
+            },
+            "home_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Tropicana Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823815",
+            "scheduled_at": "2026-09-13T17:40:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Miami Marlins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "loanDepot park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823658",
+            "scheduled_at": "2026-09-13T18:10:00Z",
+            "away_team": {
+                "name": "Cleveland Guardians"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823734",
+            "scheduled_at": "2026-09-13T18:10:00Z",
+            "away_team": {
+                "name": "Cincinnati Reds"
+            },
+            "home_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "American Family Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823008",
+            "scheduled_at": "2026-09-13T18:15:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824628",
+            "scheduled_at": "2026-09-13T18:20:00Z",
+            "away_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824952",
+            "scheduled_at": "2026-09-13T20:05:00Z",
+            "away_team": {
+                "name": "Seattle Mariners"
+            },
+            "home_team": {
+                "name": "Athletics"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Sutter Health Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "825033",
+            "scheduled_at": "2026-09-13T20:10:00Z",
+            "away_team": {
+                "name": "Texas Rangers"
+            },
+            "home_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Chase Field"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872929",
+            "scheduled_at": "2026-09-13T20:25:00Z",
+            "away_team": {
+                "name": "Washington Commanders"
+            },
+            "home_team": {
+                "name": "Philadelphia Eagles"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Lincoln Financial Field"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872926",
+            "scheduled_at": "2026-09-13T20:25:00Z",
+            "away_team": {
+                "name": "Arizona Cardinals"
+            },
+            "home_team": {
+                "name": "Los Angeles Chargers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "SoFi Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872927",
+            "scheduled_at": "2026-09-13T20:25:00Z",
+            "away_team": {
+                "name": "Green Bay Packers"
+            },
+            "home_team": {
+                "name": "Minnesota Vikings"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "U.S. Bank Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872928",
+            "scheduled_at": "2026-09-13T20:25:00Z",
+            "away_team": {
+                "name": "Miami Dolphins"
+            },
+            "home_team": {
+                "name": "Las Vegas Raiders"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Allegiant Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823171",
+            "scheduled_at": "2026-09-13T23:20:00Z",
+            "away_team": {
+                "name": "San Diego Padres"
+            },
+            "home_team": {
+                "name": "San Francisco Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Oracle Park"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872930",
+            "scheduled_at": "2026-09-14T00:20:00Z",
+            "away_team": {
+                "name": "Dallas Cowboys"
+            },
+            "home_team": {
+                "name": "New York Giants"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "MetLife Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824465",
+            "scheduled_at": "2026-09-14T22:40:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Cincinnati Reds"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Great American Ball Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824386",
+            "scheduled_at": "2026-09-14T22:40:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "Cleveland Guardians"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Progressive Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822765",
+            "scheduled_at": "2026-09-14T23:07:00Z",
+            "away_team": {
+                "name": "Detroit Tigers"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823575",
+            "scheduled_at": "2026-09-14T23:10:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "New York Mets"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Citi Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824629",
+            "scheduled_at": "2026-09-14T23:40:00Z",
+            "away_team": {
+                "name": "Atlanta Braves"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823656",
+            "scheduled_at": "2026-09-14T23:40:00Z",
+            "away_team": {
+                "name": "New York Yankees"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823006",
+            "scheduled_at": "2026-09-14T23:45:00Z",
+            "away_team": {
+                "name": "San Francisco Giants"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "nfl",
+            "external_id": "401872931",
+            "scheduled_at": "2026-09-15T00:15:00Z",
+            "away_team": {
+                "name": "Denver Broncos"
+            },
+            "home_team": {
+                "name": "Kansas City Chiefs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Not started",
+            "venue": "Arrowhead Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824308",
+            "scheduled_at": "2026-09-15T00:40:00Z",
+            "away_team": {
+                "name": "San Diego Padres"
+            },
+            "home_team": {
+                "name": "Colorado Rockies"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Coors Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823981",
+            "scheduled_at": "2026-09-15T01:38:00Z",
+            "away_team": {
+                "name": "Seattle Mariners"
+            },
+            "home_team": {
+                "name": "Los Angeles Angels"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Angel Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "825034",
+            "scheduled_at": "2026-09-15T01:40:00Z",
+            "away_team": {
+                "name": "Miami Marlins"
+            },
+            "home_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Chase Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822925",
+            "scheduled_at": "2026-09-15T22:40:00Z",
+            "away_team": {
+                "name": "Athletics"
+            },
+            "home_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Tropicana Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824384",
+            "scheduled_at": "2026-09-15T22:40:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "Cleveland Guardians"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Progressive Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824466",
+            "scheduled_at": "2026-09-15T22:40:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Cincinnati Reds"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Great American Ball Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823333",
+            "scheduled_at": "2026-09-15T22:40:00Z",
+            "away_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "home_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "PNC Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822683",
+            "scheduled_at": "2026-09-15T22:45:00Z",
+            "away_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "home_team": {
+                "name": "Washington Nationals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Nationals Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822762",
+            "scheduled_at": "2026-09-15T23:07:00Z",
+            "away_team": {
+                "name": "Detroit Tigers"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823574",
+            "scheduled_at": "2026-09-15T23:10:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "New York Mets"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Citi Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824627",
+            "scheduled_at": "2026-09-15T23:40:00Z",
+            "away_team": {
+                "name": "Atlanta Braves"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823654",
+            "scheduled_at": "2026-09-15T23:40:00Z",
+            "away_team": {
+                "name": "New York Yankees"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823007",
+            "scheduled_at": "2026-09-15T23:45:00Z",
+            "away_team": {
+                "name": "San Francisco Giants"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822849",
+            "scheduled_at": "2026-09-16T00:05:00Z",
+            "away_team": {
+                "name": "Boston Red Sox"
+            },
+            "home_team": {
+                "name": "Texas Rangers"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Globe Life Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824143",
+            "scheduled_at": "2026-09-16T00:10:00Z",
+            "away_team": {
+                "name": "Kansas City Royals"
+            },
+            "home_team": {
+                "name": "Houston Astros"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Daikin Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824307",
+            "scheduled_at": "2026-09-16T00:40:00Z",
+            "away_team": {
+                "name": "San Diego Padres"
+            },
+            "home_team": {
+                "name": "Colorado Rockies"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Coors Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823980",
+            "scheduled_at": "2026-09-16T01:38:00Z",
+            "away_team": {
+                "name": "Seattle Mariners"
+            },
+            "home_team": {
+                "name": "Los Angeles Angels"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Angel Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "825030",
+            "scheduled_at": "2026-09-16T01:40:00Z",
+            "away_team": {
+                "name": "Miami Marlins"
+            },
+            "home_team": {
+                "name": "Arizona Diamondbacks"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Chase Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824382",
+            "scheduled_at": "2026-09-16T17:10:00Z",
+            "away_team": {
+                "name": "Chicago White Sox"
+            },
+            "home_team": {
+                "name": "Cleveland Guardians"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Progressive Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823004",
+            "scheduled_at": "2026-09-16T17:15:00Z",
+            "away_team": {
+                "name": "San Francisco Giants"
+            },
+            "home_team": {
+                "name": "St. Louis Cardinals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Busch Stadium"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823655",
+            "scheduled_at": "2026-09-16T17:40:00Z",
+            "away_team": {
+                "name": "New York Yankees"
+            },
+            "home_team": {
+                "name": "Minnesota Twins"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Target Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822763",
+            "scheduled_at": "2026-09-16T19:07:00Z",
+            "away_team": {
+                "name": "Detroit Tigers"
+            },
+            "home_team": {
+                "name": "Toronto Blue Jays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Rogers Centre"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823332",
+            "scheduled_at": "2026-09-16T22:40:00Z",
+            "away_team": {
+                "name": "Milwaukee Brewers"
+            },
+            "home_team": {
+                "name": "Pittsburgh Pirates"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "PNC Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822926",
+            "scheduled_at": "2026-09-16T22:40:00Z",
+            "away_team": {
+                "name": "Athletics"
+            },
+            "home_team": {
+                "name": "Tampa Bay Rays"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Tropicana Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824467",
+            "scheduled_at": "2026-09-16T22:40:00Z",
+            "away_team": {
+                "name": "Los Angeles Dodgers"
+            },
+            "home_team": {
+                "name": "Cincinnati Reds"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Great American Ball Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "822680",
+            "scheduled_at": "2026-09-16T22:45:00Z",
+            "away_team": {
+                "name": "Philadelphia Phillies"
+            },
+            "home_team": {
+                "name": "Washington Nationals"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Nationals Park"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "823576",
+            "scheduled_at": "2026-09-16T23:10:00Z",
+            "away_team": {
+                "name": "Baltimore Orioles"
+            },
+            "home_team": {
+                "name": "New York Mets"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Citi Field"
+        },
+        {
+            "sport": "mlb",
+            "external_id": "824626",
+            "scheduled_at": "2026-09-16T23:40:00Z",
+            "away_team": {
+                "name": "Atlanta Braves"
+            },
+            "home_team": {
+                "name": "Chicago Cubs"
+            },
+            "away_score": 0,
+            "home_score": 0,
+            "status": "Preview",
+            "venue": "Wrigley Field"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+FROM golang:1.26 AS builder
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+RUN go build -o exporter ./cmd/export
+
+
+FROM debian:bookworm-slim
+
+RUN useradd --create-home --shell /bin/bash appuser
+
+WORKDIR /app
+
+COPY --from=builder /app/exporter .
+
+RUN mkdir /output \
+    && chown appuser:appuser /output
+
+USER appuser
+
+CMD ["./exporter"]

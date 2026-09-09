@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 
 	"github.com/JMar2021/sports-data-platform/internal/repository"
 )
@@ -32,8 +33,26 @@ func NewServer(repo *repository.Repository, httpAddr string) *Server {
 }
 
 func (s *Server) handleGames(w http.ResponseWriter, r *http.Request) {
+	now := time.Now()
+	location := now.Location()
+
+	today := time.Date(
+		now.Year(),
+		now.Month(),
+		now.Day(),
+		0, 0, 0, 0,
+		location,
+	)
+
+	start := today.AddDate(0, 0, -1)
+	end := today.AddDate(0, 0, 8)
+
 	ctx := r.Context()
-	games, err := s.Repository.GetGames(ctx)
+	games, err := s.Repository.GetGames(
+		ctx,
+		start,
+		end,
+	)
 	if err != nil {
 		http.Error(w, "failed to get games", http.StatusInternalServerError)
 		return

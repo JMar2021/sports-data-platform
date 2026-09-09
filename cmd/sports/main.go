@@ -115,16 +115,34 @@ func main() {
 			Operation: jobs.OperationGetStandings,
 		}: standingsHandler,
 	}
-	scheduleFactory := func() (jobs.Job, error) {
-		return jobs.NewScheduleJob(domain.SportMLB, time.Now().Format("2006-01-02"))
-	}
-	nflScheduleFactory := func() (jobs.Job, error) {
-		return jobs.NewScheduleJob(domain.SportNFL, time.Now().Format("2006-01-02"))
-	}
+
+	mlbScheduleFactories := makeScheduleFactories(
+		domain.SportMLB,
+		-1,
+		9,
+	)
+
+	nflScheduleFactories := makeScheduleFactories(
+		domain.SportNFL,
+		-1,
+		9,
+	)
+
 	standingsFactory := func() (jobs.Job, error) {
-		return jobs.NewStandingsJob(time.Now().Format("2006-01-02"))
+		return jobs.NewStandingsJob(
+			time.Now().Format("2006-01-02"),
+		)
 	}
-	factories := []jobs.JobFactory{scheduleFactory, standingsFactory, nflScheduleFactory}
+
+	factories := append(
+		mlbScheduleFactories,
+		nflScheduleFactories...,
+	)
+
+	factories = append(
+		factories,
+		standingsFactory,
+	)
 	executor := jobs.NewExecutor(logger, handlers)
 	// Create the scheduler.
 	scheduler := jobs.NewScheduler(queue, repo, 10*time.Second, factories)
@@ -172,4 +190,26 @@ func main() {
 	}
 
 	fmt.Println("Sports Data Platform stopped.")
+}
+
+func makeScheduleFactories(
+	sport domain.Sport,
+	startOffset int,
+	numberOfDays int,
+) []jobs.JobFactory {
+	factories := make([]jobs.JobFactory, 0, numberOfDays)
+
+	for offset := 0; offset < numberOfDays; offset++ {
+		offset := offset
+
+		factories = append(factories, func() (jobs.Job, error) {
+			date := time.Now().
+				AddDate(0, 0, startOffset+offset).
+				Format("2006-01-02")
+
+			return jobs.NewScheduleJob(sport, date)
+		})
+	}
+
+	return factories
 }

@@ -106,36 +106,58 @@ func (r *Repository) UpsertGame(
 	return err
 }
 
-func (r *Repository) GetGames(ctx context.Context) ([]GameResult, error) {
+func (r *Repository) GetGames(
+	ctx context.Context,
+	start time.Time,
+	end time.Time,
+) ([]domain.Game, error) {
 	rows, err := r.DB.Query(ctx,
 		`SELECT
-			g.mlb_game_id,
-			away.name AS away_team,
+			g.sport,
+			g.external_id,
+			g.game_date,
+			away.sport,
+			away.external_id,
+			away.name,
+			home.sport,
+			home.external_id,
+			home.name,
 			g.away_score,
-			home.name AS home_team,
 			g.home_score,
 			g.status,
 			g.venue
 		FROM games g
 		JOIN teams away ON g.away_team_id = away.id
 		JOIN teams home ON g.home_team_id = home.id
+		WHERE g.game_date >= $1
+		  AND g.game_date < $2
 		ORDER BY g.game_date`,
+		start,
+		end,
 	)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
-	var games []GameResult
+	var games []domain.Game
 
 	for rows.Next() {
-		var game GameResult
+		var game domain.Game
+		var awayTeam domain.Team
+		var homeTeam domain.Team
 
 		err := rows.Scan(
-			&game.GameID,
-			&game.AwayTeam,
+			&game.Sport,
+			&game.ExternalID,
+			&game.ScheduledAt,
+			&awayTeam.Sport,
+			&awayTeam.ExternalID,
+			&awayTeam.Name,
+			&homeTeam.Sport,
+			&homeTeam.ExternalID,
+			&homeTeam.Name,
 			&game.AwayScore,
-			&game.HomeTeam,
 			&game.HomeScore,
 			&game.Status,
 			&game.Venue,
@@ -143,6 +165,9 @@ func (r *Repository) GetGames(ctx context.Context) ([]GameResult, error) {
 		if err != nil {
 			return nil, err
 		}
+
+		game.AwayTeam = awayTeam
+		game.HomeTeam = homeTeam
 
 		games = append(games, game)
 	}

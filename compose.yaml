@@ -45,5 +45,18 @@ services:
       migrate:
         condition: service_completed_successfully
   
+  export:
+    build:
+      context: .
+      dockerfile: Dockerfile.exporter
+    environment:
+      SPORTS_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+      EXPORT_OUTPUT_PATH : /output/games.json
+    volumes:
+      - ./site/data:/output
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+  
 volumes:
   postgres_data:
