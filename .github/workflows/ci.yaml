@@ -90,6 +90,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Record current image
         run: ./scripts/record-current-image.ps1
+        env:
+          IMAGE_TAG: latest
       - name: Pull deployment image
         env:
           IMAGE_TAG: ${{ needs.docker_build.outputs.image_tag }}
