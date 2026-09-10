@@ -1,4 +1,5 @@
 name: sports-data-platform
+
 services:
   postgres:
     image: postgres:18
@@ -38,26 +39,35 @@ services:
       - "8080:8080"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "f", "http://localhost:8080/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 10s
       timeout: 5s
       retries: 3
     depends_on:
       migrate:
         condition: service_completed_successfully
-  
+
+  batch:
+    image: ghcr.io/jmar2021/sports-data-platform:${IMAGE_TAG}
+    environment:
+      SPORTS_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    command: ["./sports-data-platform-batch"]
+
   export:
     build:
       context: .
       dockerfile: Dockerfile.exporter
     environment:
       SPORTS_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
-      EXPORT_OUTPUT_PATH : /output/games.json
+      EXPORT_OUTPUT_PATH: /output/games.json
     volumes:
       - ./site/data:/output
     depends_on:
-      migrate:
+      batch:
         condition: service_completed_successfully
-  
+
 volumes:
   postgres_data:

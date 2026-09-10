@@ -10,15 +10,22 @@ import (
 )
 
 type Worker struct {
-	ID           int
-	Queue        *Queue
-	Executor     *Executor
-	Logger       *slog.Logger
-	RetryManager *RetryManager
-	Repository   *repository.Repository
+	ID            int
+	Queue         *Queue
+	Executor      *Executor
+	Logger        *slog.Logger
+	RetryManager  *RetryManager
+	Repository    *repository.Repository
+	OnJobComplete func(Job)
 }
 
 const MaxAttempts = 3
+
+func (w *Worker) jobComplete(job Job) {
+	if w.OnJobComplete != nil {
+		w.OnJobComplete(job)
+	}
+}
 
 func (w *Worker) Run(shutdownCtx context.Context, jobCtx context.Context) {
 	for {
@@ -29,7 +36,8 @@ func (w *Worker) Run(shutdownCtx context.Context, jobCtx context.Context) {
 				return
 			}
 
-			w.Logger.Error("queue error",
+			w.Logger.Error(
+				"queue error",
 				"worker", w.ID,
 				"error", err,
 			)
@@ -61,6 +69,8 @@ func (w *Worker) executeJob(
 		)
 
 		w.Queue.Complete(job)
+		w.jobComplete(job)
+
 		return
 	}
 
@@ -90,6 +100,7 @@ func (w *Worker) executeJob(
 		}
 
 		w.Queue.Complete(job)
+		w.jobComplete(job)
 
 		w.Logger.Info(
 			"job complete",
@@ -124,6 +135,8 @@ func (w *Worker) executeJob(
 			)
 
 			w.Queue.Complete(job)
+			w.jobComplete(job)
+
 			return
 		}
 
@@ -163,4 +176,5 @@ func (w *Worker) executeJob(
 	)
 
 	w.Queue.Complete(job)
+	w.jobComplete(job)
 }
