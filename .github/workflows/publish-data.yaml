@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Run exporter
-        run: docker compose run --rm export
+        run: docker compose run --rm --no-deps export
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload pages artifact
