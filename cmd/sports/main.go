@@ -145,7 +145,7 @@ func main() {
 	)
 	executor := jobs.NewExecutor(logger, handlers)
 	// Create the scheduler.
-	scheduler := jobs.NewScheduler(queue, repo, 10*time.Second, factories)
+	scheduler := jobs.NewScheduler(queue, repo, 60*time.Second, factories)
 
 	// Create and start workers.
 	var wg sync.WaitGroup
