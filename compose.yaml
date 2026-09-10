@@ -65,6 +65,7 @@ services:
       EXPORT_OUTPUT_PATH: /output/games.json
     volumes:
       - ./site/data:/output
+    user: "0:0"
     depends_on:
       batch:
         condition: service_completed_successfully
