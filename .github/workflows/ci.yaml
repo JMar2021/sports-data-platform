@@ -34,6 +34,10 @@ jobs:
         run: go mod download
       - name: Build application
         run: go build ./cmd/sports
+      - name: Build batch
+        run: go build ./cmd/batch
+      - name: Build export
+        run: go build ./cmd/export
 
   docker_build:
     runs-on: ubuntu-latest
